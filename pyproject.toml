@@ -1,0 +1,22 @@
+[project]
+name = "deadlock-mods"
+dynamic = ["version"]
+description = "Gerenciador de mods do Deadlock (GameBanana)"
+requires-python = ">=3.10"
+dependencies = ["PySide6-Essentials>=6.5", "requests", "numpy", "backports.zstd; python_version < '3.14'"]
+
+[project.gui-scripts]
+deadlock-mods = "dlmods.ui:main"
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+version = {attr = "dlmods.__version__"}
+
+[tool.setuptools]
+packages = ["dlmods", "dlmods.s2"]
+
+[tool.setuptools.package-data]
+dlmods = ["icon.svg"]
